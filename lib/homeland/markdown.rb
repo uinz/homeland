@@ -5,7 +5,7 @@ require "html/pipeline"
 context = {
   gfm: true,
   video_width: 700,
-  video_height: 387,
+  video_height: 387
 }
 
 filters = [
@@ -15,7 +15,8 @@ filters = [
   Homeland::Pipeline::MentionFilter,
   Homeland::Pipeline::FloorFilter,
   HTML::Pipeline::AutoCorrectFilter,
-  Homeland::Pipeline::TwemojiFilter
+  Homeland::Pipeline::TwemojiFilter,
+  Homeland::Pipeline::ImageproxyFilter
 ]
 
 TopicPipeline = HTML::Pipeline.new(filters, context)
@@ -30,7 +31,7 @@ module Homeland
       end
 
       def example(locale)
-        open(Rails.root.join("lib/homeland/markdown/guides.#{locale}.md")).read
+        File.open(Rails.root.join("lib/homeland/markdown/guides.#{locale}.md")).read
       end
     end
   end

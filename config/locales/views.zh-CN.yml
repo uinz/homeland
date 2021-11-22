@@ -130,11 +130,20 @@
     recent_node_topics_description: "%{name} 社区 %{node_name} 节点最新发帖."
     recent_node_topics_title: "%{name} 社区 %{node_name} 节点"
   setting:
+    scope:
+      basic: 基本设置
+      uploader: 文件上传
+      mailer: 邮件
+      auth: 用户认证
+      limits: 限制规则
+      appearance: 用户界面配置
+      captcha: 验证码
+      other: 其他
     app_name: "网站名称"
     newbie_notices: "新手提示信息（支持 HTML）"
     admin_emails: "管理员 Email，在此名单的将有管理员权限（一行一个）"
     reject_newbie_reply_in_the_evening: "禁止新手在晚上回帖"
-    node_ids_hide_in_topics_index: "要在论坛首页列表隐藏的节点,以逗号隔开"
+    node_ids_hide_in_topics_index: "要在论坛首页列表隐藏的节点，以逗号隔开"
     default_locale: "默认语言 可选值: [zh-CN, en]"
     auto_locale: "是否自动根据用户浏览器语言来切换显示语言 [true | false]"
     custom_head_html: "自定 HTML head 区域的内容"
@@ -155,7 +164,7 @@
     newbie_limit_time: "新注册用户（新手）限制期，单位秒（0 不限制），在新手期不能创建新话题，仅能回帖"
     ban_reasons: "屏蔽原因，将会在屏蔽话题的时候作为选项（一行一个）"
     ban_reason_html: "屏蔽原因详细描述，用于在被屏蔽的话题后面给做补充提示（HTML 格式编写）"
-    topic_create_limit_interval: "话题创建频率限制，间隔多久（单位: 秒）"
+    topic_create_limit_interval: "话题创建频率限制，间隔多久（单位：秒）"
     topic_create_hour_limit_count: "1 小时内，创建话题的数量限制（单位：篇）"
     sign_up_daily_limit: "单日每个 IP 的注册用户数量限制，(0 不限制)"
     use_recaptcha: "启用 Google reCaptcha 开启更强的验证码保护"
@@ -173,13 +182,17 @@
     domain: "网站域名，默认: localhost"
     asset_host: "静态资源 CDN，比如：https://assets.your-host.com (如果没有，请留空)"
     https: "是否启用 HTTPS"
-    rack_attack: "访问频率限制，limit - 每个周期单个 IP 请求次数限制, period - 多少时间（秒）为一个请求限制周期"
+    rack_attack: "访问频率限制，limit - 每个周期单个 IP 请求次数限制， period - 多少时间（秒）为一个请求限制周期"
     github_api_key: "GitHub 登录 API key (留空禁用）"
     github_api_secret: "GitHub 登录 API secret key"
     twitter_api_key: "Twitter 登录 API key (留空禁用）"
     twitter_api_secret: "Twitter 登录 API secret key"
     wechat_api_key: "微信登录 API key (留空禁用）"
     wechat_api_secret: "微信登录 API secret key"
+    imageproxy_url: '配置外部图片代理，利用 <a href="https://www.github.com/willnorris/imageproxy">ImageProxy</a> 来实现，例如 <code>https://imageproxy.your-host.com/1000x/</code>，留空则不启用'
+    mailer_provider: "邮件发送方式"
+    mailer_sender: "邮件的发送者，例如：no-reply@your-host.com"
+    mailer_options: '邮件参数，配置 SMTP 参数或 PostMark API KEY，参考 <a href="https://homeland.ruby-china.org/docs/configuration/mailer/">邮件服务配置</a>'
   pagination:
     next: "下一页"
     prev: "上一页"
@@ -229,7 +242,7 @@
     excellent_info_html: "本帖已被管理员设置为精华贴"
     need_login_to_reply_html: 需要 <a href="/account/sign_in" class="btn btn-primary">登录</a> 后方可回复, 如果你还没有账号请 <a href="/account/sign_up">注册新账号</a>
     newbi_info_html: "当前设置新手用户不能在 22:00 ~ 9:00 发帖。"
-    closed_info_html: 此话题已于 %{closed_at} 关闭讨论，不在接受任何回复。
+    closed_info_html: 此话题已于 %{closed_at} 关闭讨论，不再接受任何回复。
     topic_pin_successfully: 话题置顶成功。
     topic_unpin_successfully: 话题取消置顶成功。
     excellent_successfully: 话题已设置为精华贴。
@@ -247,7 +260,7 @@
     ban_directly: 直接屏蔽
     ban_with_reason: 输入屏蔽原因：
     closed_tooltip: "问题已解决／话题已结束讨论"
-    sensitive_word_limit: '创建失败，内容包含敏感词：“%{word}”'
+    sensitive_word_limit: "创建失败，内容包含敏感词：“%{word}”"
     new_reply_received_html: 收到新回复，点击立即加载
     form:
       title_placeholder: 在这里输入标题
@@ -278,7 +291,7 @@
     bios: "个人介绍"
     city: "城市"
     company: "公司"
-    number_of_user: 第 %{no} 位会员 
+    number_of_user: 第 %{no} 位会员
     join_time: "Since"
     signature: "签名"
     personal_website: "博客"
@@ -289,20 +302,20 @@
     unbind_warning: "至少要保留一个关联账号，现在不能解绑。"
     unbind_success: "%{provider} 账号解绑成功。"
     please_be_careful: "谨慎修改"
-    be_sure_to_use_twitter_id: "此项将会影响回复信息关联,建议用 Twitter ID"
+    be_sure_to_use_twitter_id: "此项将会影响回复信息关联，建议用 Twitter ID"
     personal_information: "个人资料设置"
     edit_password: "修改密码"
     delete_this_account: "删除此账号"
-    dont_like_it: "不喜欢?"
-    bind_another_account: "绑定其他账号用于登录"
+    dont_like_it: "不喜欢？"
+    bind_another_account: "三方登陆绑定"
     click_to_unbind: "点击接触登陆绑定"
     register_user: "注册新用户"
     login: "用户名"
     suggest_using_twitter_id: "谨慎填写，以后不可修改，建议用 Twitter ID。"
     already_have_account: "已经有账号了？"
-    forget_password: "忘记了密码?"
-    not_recieve_confirm_mail: "未收到确认邮件?"
-    not_recieve_unlock_mail: "未收到解锁邮件?"
+    forget_password: "忘记了密码？"
+    not_recieve_confirm_mail: "未收到确认邮件？"
+    not_recieve_unlock_mail: "未收到解锁邮件？"
     current_have: "目前已经有"
     users_joined: "位会员加入了"
     teams_joined: "个团队加入了"
@@ -324,7 +337,7 @@
     reward_tip_html: 如果觉得我的文章对您有用，请随意打赏。您的支持将鼓励我继续创作！
     username_allows_format: 只允许数字、大小写字母、中横线、下划线。
     no_replies: 还未参与讨论。
-    no_github: 未设置 GitHub 信息.
+    no_github: 未设置 GitHub 信息。
     menu:
       topics: "话题"
       recent_reply_topics: "最近回帖"
@@ -337,29 +350,29 @@
       followers: "关注者"
       blocked: "已屏蔽"
   team_user_status:
-    pendding: '等待接受'
-    acceped: '已加入'
+    pendding: "等待接受"
+    acceped: "已加入"
   team_user_role:
-    owner: '组管理员'
-    member: '成员'
+    owner: "组管理员"
+    member: "成员"
   teams:
-    teams: '组织'
-    user_existed: '已经在组里面了'
-    new_team: '创建公司／组织'
-    edit_team: '设置公司／组织资料'
-    new_team_user: '邀请成员'
+    teams: "组织"
+    user_existed: "已经在组里面了"
+    new_team: "创建公司／组织"
+    edit_team: "设置公司／组织资料"
+    new_team_user: "邀请成员"
     all_members: "所有成员"
-    edit_team_user: '修改成员权限'
-    delete_team_user: '移除成员'
-    show_team_user: '查看邀请'
-    accept_team_user: '接受邀请'
-    reject_team_user: '拒绝'
-    delete_team_user_confirm: '确定要将他从组里面移除掉么？'
+    edit_team_user: "修改成员权限"
+    delete_team_user: "移除成员"
+    show_team_user: "查看邀请"
+    accept_team_user: "接受邀请"
+    reject_team_user: "拒绝"
+    delete_team_user_confirm: "确定要将他从组里面移除掉么？"
     do_you_want_accept_team_user_html: "你是否要接受邀请加入 <b>%{team}</b>？"
-    topics: '成员的话题列表'
-    users: '成员列表'
-    team_user_pendding: '等待接受'
-    settings: '设置'
+    topics: "成员的话题列表"
+    users: "成员列表"
+    team_user_pendding: "等待接受"
+    settings: "设置"
     team_users_count: "%{count} 个团队成员"
   user_setting:
     profile: "个人信息"
@@ -373,7 +386,7 @@
     mention_title_html: 在 <a href="%{url}">%{title}</a> 提及了你
     comment_title_html: 在你发布的 <a href="%{url}">%{title}</a> 评论了
     reply_title_html: 回复了话题 %{topic}
-    topic_title_html: 创建了话题 %{topic} 
+    topic_title_html: 创建了话题 %{topic}
     follow_you: 关注了你。
     node_changed_html: 你发布的话题 %{topic} 由于内容原因被管理员移动到了 %{node}  节点，请注意查看节点说明。
     invite_you_join: 邀请你加入

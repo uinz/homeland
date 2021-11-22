@@ -1,8 +1,8 @@
 "en":
   common:
-    justnow: 'Just Now'
-    hour: 'Hour'
-    minute: 'Minute'
+    justnow: "Just Now"
+    hour: "Hour"
+    minute: "Minute"
     edit: "Edit"
     create: "Create"
     ok: "OK"
@@ -83,8 +83,8 @@
     reward: "Reward"
     has_deleted: "has deleted"
     auth_with_other_services: "Sign in with other services"
-    captcha: 'Captcha'
-    search_result: 'Search results'
+    captcha: "Captcha"
+    search_result: "Search results"
     tips: Tips
     unknow_error: Unknow error, please try out later.
     unknow_user: Unknow user
@@ -97,8 +97,8 @@
     error_message_title: There have %{count} issues can not submit
   reply:
     edit_reply: "Edit Reply"
-    delete_reply_success: 'Delete successfully.'
-    topic_location: 'Replied to'
+    delete_reply_success: "Delete successfully."
+    topic_location: "Replied to"
   photos:
     upload_and_insert_code: "Upload and insert code"
     uploading: "Uploading"
@@ -129,6 +129,15 @@
     recent_node_topics_description: "Recent Topic in %{node_name} of %{name} Forum."
     recent_node_topics_title: "%{node_name} node of %{name} Forum"
   setting:
+    scope:
+      basic: General
+      uploader: Uploader
+      mailer: Mailer
+      auth: Authorization
+      limits: Rules / Limits
+      appearance: Appearance
+      captcha: Captcha
+      other: Other
     app_name: "Application name"
     newbie_notices: "Notifce for newbie (HTML)"
     admin_emails: "Admin emails, in this list email who will get the admin role."
@@ -176,6 +185,10 @@
     twitter_api_secret: "Twitter login API secret key"
     wechat_api_key: "Wechat API key (Keep empty to disable)"
     wechat_api_secret: "Wechat API secret key"
+    imageproxy_url: 'Use <a href="https://www.github.com/willnorris/imageproxy">ImageProxy</a> as outside image proxy. For example: <code>https://imageproxy.your-host.com/1000x/</code>, leave empty to disable.'
+    mailer_provider: "Mail delivery method"
+    mailer_sender: "Mail sender, for example: no-reply@your-host.com"
+    mailer_options: 'Mail options for differences delivery method, see: <a href="https://homeland.ruby-china.org/docs/configuration/mailer/">Mailer Confguration</a>'
   pagination:
     next: "Next"
     prev: "Prev"
@@ -220,7 +233,7 @@
     have_no_new_reply: "No new activites since your last read."
     have_no_avatar: "You can't create a new Topic, before you upload a avatar."
     excellent_info_html: "Topic has been selected as the excellent topic by the admin."
-    need_login_to_reply_html: You need to <a href="/account/sign_in" class="btn btn-sm btn-primary">Sign in</a> before reply, if you don't have an account, please <a href="/account/sign_up" class="btn btn-default btn-sm">Sign up</a> first.
+    need_login_to_reply_html: You need to <a href="/account/sign_in" class="btn btn-sm btn-primary">Sign in</a> before reply, if you don't have an account, please <a href="/account/sign_up" class="btn btn-secondary btn-sm">Sign up</a> first.
     newbi_info_html: "Newbi users cannot reply between 22:00 - 9:00."
     closed_info_html: Topic has been closed at %{closed_at}, is not accepting any replies.
     topic_pin_successfully: Topic has pinned successfully.
@@ -330,29 +343,29 @@
       followers: "Followers"
       blocked: "Blocked"
   team_user_status:
-    pendding: 'Awaiting response'
-    acceped: 'Accepted'
+    pendding: "Awaiting response"
+    acceped: "Accepted"
   team_user_role:
-    owner: 'Owner'
-    member: 'Member'
+    owner: "Owner"
+    member: "Member"
   teams:
-    teams: 'Team'
-    user_existed: 'Already in this team'
-    new_team: 'New Team'
-    edit_team: 'Edit team profile'
-    new_team_user: 'Add a member'
+    teams: "Team"
+    user_existed: "Already in this team"
+    new_team: "New Team"
+    edit_team: "Edit team profile"
+    new_team_user: "Add a member"
     all_members: "All members"
-    edit_team_user: 'Change team roles'
-    delete_team_user: 'Remove member'
-    show_team_user: 'View invitations'
-    accept_team_user: 'Accept invitation'
+    edit_team_user: "Change team roles"
+    delete_team_user: "Remove member"
+    show_team_user: "View invitations"
+    accept_team_user: "Accept invitation"
     do_you_want_accept_team_user_html: "Do you want to accept invitation to join <b>%{team}</b>?"
-    reject_team_user: 'Decline'
-    delete_team_user_confirm: 'Are you sure you want to remove this user from team?'
-    topics: 'Topics of members'
-    users: 'Members'
-    team_user_pendding: 'Awaiting response'
-    settings: 'Settings'
+    reject_team_user: "Decline"
+    delete_team_user_confirm: "Are you sure you want to remove this user from team?"
+    topics: "Topics of members"
+    users: "Members"
+    team_user_pendding: "Awaiting response"
+    settings: "Settings"
     team_users_count: "%{count} team members"
   user_setting:
     profile: Profile

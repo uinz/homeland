@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset='utf-8' />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta charset='utf-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta name="theme" content="<%= user_theme %>">
     <title><%= content_for?(:title) ? yield(:title) : Setting.app_name %></title>
     <meta name="apple-mobile-web-app-capable" content="no">
-    <meta content='True' name='HandheldFriendly' />
+    <meta content='True' name='HandheldFriendly'>
     <%= stylesheet_pack_tag "front" %>
     <%= javascript_packs_with_chunks_tag "application" %>
     <%= csrf_meta_tag %>
     <%= raw Setting.custom_head_html %>
   </head>
   <body data-controller-name="<%= controller_name %>">
+    <%= javascript_pack_tag "bootstrap", 'data-turbolinks-eval': "false" %>
     <div class="header">
       <div class="header navbar navbar-expand flex-md-row bd-navbar">
         <div class="container d-sm-flex flex-wrap">
@@ -29,7 +30,7 @@
       </div>
     </div>
     <div id="main" class="main-container container">
-      <%= notice_message %>
+      <%= render AlertComponent.new %>
       <%= yield %>
     </div>
     <footer class="footer">

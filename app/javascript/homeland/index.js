@@ -1,4 +1,3 @@
-import "bootstrap";
 import jQuery from "jquery";
 window.jQuery = jQuery;
 window.$ = jQuery;
@@ -32,7 +31,6 @@ require("google_analytics");
 require("jquery.infinitescroll.min");
 require("jquery.mobile-events");
 require("vendor/social-share-button");
-require("bootstrap-select");
 
 import { createConsumer } from "@rails/actioncable";
 
@@ -60,10 +58,10 @@ window.App = {
     return url.replace(/\/\//g, "/").replace(/:\//, "://");
   },
 
-  // 警告信息显示, to 显示在那个 DOM 前 (可以用 css selector)
+  // 警告信息显示，to 显示在那个 DOM 前 (可以用 css selector)
   alert(msg, to) {
     $(".alert").remove();
-    const html = `<div class='alert alert-warning'><button class='close' data-dismiss='alert'><span aria-hidden='true'>&times;</span></button>${msg}</div>`;
+    const html = `<div class='alert alert-warning'><button type="button" class="btn-close" data-bs-dismiss="alert"></button>${msg}</div>`;
     if (to) {
       return $(to).before(html);
     } else {
@@ -71,10 +69,10 @@ window.App = {
     }
   },
 
-  // 成功信息显示, to 显示在那个 DOM 前 (可以用 css selector)
+  // 成功信息显示，to 显示在那个 DOM 前 (可以用 css selector)
   notice(msg, to) {
     $(".alert").remove();
-    const html = `<div class='alert alert-success'><button class='close' data-dismiss='alert'><span aria-hidden='true'>&times;</span></button>${msg}</div>`;
+    const html = `<div class='alert alert-success'><button type="button" class="btn-close" data-bs-dismiss="alert"></button>${msg}</div>`;
     if (to) {
       return $(to).before(html);
     } else {
@@ -118,7 +116,6 @@ window.App = {
       result.push(item);
     }
 
-    console.log(result);
     return _.uniq(result);
   },
 
@@ -164,7 +161,7 @@ window.App = {
           },
         },
         displayTpl:
-          "<li data-value='${login}'><img src='${avatar_url}' height='20' width='20'/> ${login} <small>${name}</small></li>",
+          "<li data-value='${login}'><img src='${avatar_url}' height='20' width='20'> ${login} <small>${name}</small></li>",
         insertTpl: "@${login}",
       })
       .atwho({
@@ -172,18 +169,21 @@ window.App = {
         limit: 8,
         searchKey: "code",
         data: window.EMOJI_LIST,
-        displayTpl: `<li data-value='\${code}'><img src='${App.twemoji_url}/svg/\${url}.svg' class='twemoji' /> \${code} </li>`,
+        displayTpl: `<li data-value='\${code}'><img src='${App.twemoji_url}/svg/\${url}.svg' class='twemoji'> \${code} </li>`,
         insertTpl: "${code}",
       });
     return true;
   },
-};
 
-document.addEventListener("turbolinks:load", () => {
-  $("select.bootstrap-select").selectpicker({ size: 10, style: "btn-default" });
-});
-document.addEventListener("turbolinks:before-cache", () => {
-  $("select.bootstrap-select")
-    .selectpicker("destroy")
-    .addClass("bootstrap-select");
-});
+  modal(html) {
+    let modalWrap = document.querySelector(".root-modal-wrap");
+    if (!modalWrap) {
+      modalWrap = document.createElement("div");
+      modalWrap.className = "root-modal-wrap";
+      document.body.append(modalWrap);
+    }
+    modalWrap.innerHTML = html;
+    const modal = new bootstrap.Modal(modalWrap.firstChild);
+    modal.show();
+  },
+};

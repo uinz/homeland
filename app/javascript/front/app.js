@@ -40,9 +40,6 @@ const AppView = Backbone.View.extend({
 
   initComponents() {
     $("abbr.timeago").timeago();
-    $(".alert").alert();
-    $(".dropdown-toggle").dropdown();
-    $('[data-toggle="tooltip"]').tooltip();
 
     // Bind Ctrl+Enter for submit
     $(".cell_comments_new textarea").unbind("keydown");
@@ -105,7 +102,6 @@ const AppView = Backbone.View.extend({
     if (App.mobile !== false) {
       return;
     }
-    $("a[rel=twipsy]").tooltip();
 
     // CommentAble @ 回复功能
     return App.mentionable(".cell_comments_new textarea");
@@ -243,7 +239,7 @@ const AppView = Backbone.View.extend({
     const userId = btn.data("id");
     const span = btn.find("span");
     const followerCounter = $(
-      `.follow-info .followers[data-login=${userId}] .counter`
+      `.follow-info .followers[data-login="${userId}"] .counter`
     );
     if (btn.hasClass("active")) {
       $.ajax({

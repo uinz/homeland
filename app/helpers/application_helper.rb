@@ -13,21 +13,6 @@ module ApplicationHelper
     sanitize(html, scrubber: Homeland::Sanitize::TOPIC_SCRUBBER)
   end
 
-  def notice_message
-    flash_messages = []
-
-    close_html = %(<button name="button" type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span></button>)
-
-    flash.each do |type, message|
-      type = :success if type.to_sym == :notice
-      type = :danger  if type.to_sym == :alert
-      text = content_tag(:div, raw(close_html) + message, class: "alert alert-#{type}")
-      flash_messages << text if message
-    end
-
-    flash_messages.join("\n").html_safe
-  end
-
   # used in Plugin
   def admin?(user = nil)
     user ||= current_user
@@ -81,7 +66,7 @@ module ApplicationHelper
     Setting.editor_languages.each do |lang|
       lexer = Rouge::Lexer.find(lang)
       if lexer
-        dropdown_items << link_to(lexer.title, "#", class: "dropdown-item", data: { lang: lang })
+        dropdown_items << link_to(lexer.title, "#", class: "dropdown-item", data: {lang: lang})
       end
     end
     raw dropdown_items.join("")
@@ -122,7 +107,7 @@ module ApplicationHelper
     list.each do |link|
       urls = link.match(/href=(["'])(.*?)(\1)/) || []
       url = urls.length > 2 ? urls[2] : nil
-      if url && current_page?(url) || (@current&.include?(url))
+      if url && current_page?(url) || @current&.include?(url)
         link = link.gsub("nav-link", "nav-link active")
       end
       items << content_tag("li", raw(link), class: "nav-item")
@@ -143,7 +128,6 @@ module ApplicationHelper
     super(title, allow_sites: Setting.share_allow_sites)
   end
 
-
   # Render div.form-group with a block, it including validation error below input
   #
   # form_group(f, :email) do
@@ -155,7 +139,7 @@ module ApplicationHelper
     opts[:class] += " has-error" if has_errors
 
     content_tag :div, class: opts[:class] do
-      concat form.label field, class: "control-label" if opts[:label] != false
+      concat form.label field, class: "form-label" if opts[:label] != false
       concat capture(&block)
       concat errors_for(form, field)
     end

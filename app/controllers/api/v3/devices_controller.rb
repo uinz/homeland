@@ -24,11 +24,11 @@ module Api
         requires! :token, type: String
 
         @device = current_user.devices.find_or_initialize_by(platform: params[:platform].downcase,
-                                                             token: params[:token])
+          token: params[:token])
         @device.last_actived_at = Time.now
         @device.save!
 
-        render json: { ok: 1 }
+        render json: {ok: 1}
       end
 
       # 删除 Device 信息，请注意在用户登出或删除应用的时候调用，以便能确保清理掉
@@ -40,7 +40,7 @@ module Api
         requires! :platform, type: String, values: %w[ios android]
         requires! :token, type: String
         current_user.devices.where(platform: params[:platform].downcase, token: params[:token]).delete_all
-        render json: { ok: 1 }
+        render json: {ok: 1}
       end
     end
   end

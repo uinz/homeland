@@ -12,11 +12,11 @@ class User::RewardFieldsTest < ActiveSupport::TestCase
   test "RewardFields" do
     params = {
       alipay: "alipay111",
-      wechat: "wechat111",
+      wechat: "wechat111"
     }
     assert_equal false, user.reward_enabled?
     user.update_reward_fields(params)
-    assert_equal params, user.rewards
+    assert_equal params.as_json, user.rewards
     assert_equal true, user.reward_enabled?
     assert_equal "wechat111", user.reward_field(:wechat)
     assert_equal "wechat111", user.reward_field("wechat")
